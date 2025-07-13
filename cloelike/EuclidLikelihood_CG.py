@@ -158,10 +158,10 @@ class EuclidLikelihood_CG:
             As=parameters['As'], mnu=parameters['mnu'],
             gamma_MG=parameters['gamma_MG'])
             
-        perturbations = self.Perturbations(background, np.linspace(0.0, 2.0, 200))
-        perturbations_fid = self.Perturbations(background, np.linspace(0.0, 2.0, 200))
+        perturbations = self.Perturbations(background, np.linspace(0.0, 2.0, 40))
+        perturbations_fid = perturbations
 
-        HS = self.HaloStatistics(perturbations, k=settings['k'], overdensity_type=settings['overdensity_type'])
+        HS = self.HaloStatistics(perturbations, zed=settings['zed'], k=settings['k'], overdensity_type=settings['overdensity_type'])
 
         profile = self.Profile(HS,k=settings['k'], zed=settings['zed'], r_interp=settings['r_interp'],       
         two_halo=settings['two_halo'], offcentering=settings['offcentering'], rms_off=settings['rms_off'],
