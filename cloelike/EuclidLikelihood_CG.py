@@ -9,6 +9,7 @@ class EuclidLikelihood_CG:
                  HaloStatistics: type, SelectionFunction: type,
                  Profile: type, HaloClustering: type,
                  HaloCovariance: type, ClusterStatistics: type,
+                 Pk_fid: np.ndarray,
                  ):
         r""" Class constructor
         Parameters
@@ -32,7 +33,9 @@ class EuclidLikelihood_CG:
         HaloCovariance: type
             Protocol-consistent HaloCovariance class type
         ClusterStatistics: type
-            Protocol-consistent ClusterStatistics class type                                
+            Protocol-consistent ClusterStatistics class type
+        Pk_fid: type
+            Pre-computed fiducial power spectrum ndarray type                                    
         """
        
         self.Background = Background
@@ -43,6 +46,8 @@ class EuclidLikelihood_CG:
         self.HaloClustering = HaloClustering
         self.HaloCovariance = HaloCovariance
         self.ClusterStatistics = ClusterStatistics
+        
+        self.Pk_fid = Pk_fid
 
         self._prepare(data)
 
@@ -159,7 +164,7 @@ class EuclidLikelihood_CG:
             gamma_MG=parameters['gamma_MG'])
             
         perturbations = self.Perturbations(background, np.linspace(0.0, 2.0, 40))
-        perturbations_fid = perturbations
+        perturbations_fid = self.Pk_fid
 
         HS = self.HaloStatistics(perturbations, zed=settings['zed'], k=settings['k'], overdensity_type=settings['overdensity_type'])
 
