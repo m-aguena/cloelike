@@ -173,11 +173,11 @@ class EuclidLikelihood_CG:
         f_off=settings['f_off'], trunc_fact=settings['trunc_fact'], zs_max=settings['zs_max'],
         mean_nz=settings['mean_nz'], sigma_nz=settings['sigma_nz'], alpha_nz=settings['alpha_nz'])
 
-        selectionFunction = self.SelectionFunction(A_l=settings['A_l'], B_l=settings['B_l'], C_l=settings['C_l'],
-                 sig_A_l=settings['sig_A_l'], sig_B_l=settings['sig_B_l'], sig_C_l=settings['sig_C_l'], 
-                 sig_lambda_norm=settings['sig_lambda_norm'], sig_lambda_z=settings['sig_lambda_z'], 
-                 sig_lambda_exponent=settings['sig_lambda_exponent'], sig_z_z=settings['sig_z_z'],
-                 sig_z_lambda=settings['sig_z_lambda'])
+        selectionFunction = self.SelectionFunction(A_l=parameters['A_l'], B_l=parameters['B_l'], C_l=parameters['C_l'],
+                 sig_A_l=parameters['sig_A_l'], sig_B_l=parameters['sig_B_l'], sig_C_l=parameters['sig_C_l'], 
+                 sig_lambda_norm=parameters['sig_lambda_norm'], sig_lambda_z=parameters['sig_lambda_z'], 
+                 sig_lambda_exponent=parameters['sig_lambda_exponent'], sig_z_z=parameters['sig_z_z'],
+                 sig_z_lambda=parameters['sig_z_lambda'])
 
         haloClustering = self.HaloClustering(perturbations,perturbations_fid,selectionFunction,k=settings['k'])
 
