@@ -166,9 +166,9 @@ class EuclidLikelihood_CG:
         perturbations = self.Perturbations(background, np.linspace(0.0, 2.0, 40))
         perturbations_fid = self.Pk_fid
 
-        HS = self.HaloStatistics(perturbations, zed=settings['zed'], k=settings['k'], overdensity_type=settings['overdensity_type'])
+        HS = self.HaloStatistics(perturbations, z=settings['zed'], k=settings['k'], overdensity_type=settings['overdensity_type'])
 
-        profile = self.Profile(HS,k=settings['k'], zed=settings['zed'], r_interp=settings['r_interp'],       
+        profile = self.Profile(HS,k=settings['k'], z=settings['zed'], r_interp=settings['r_interp'],       
         two_halo=settings['two_halo'], offcentering=settings['offcentering'], rms_off=settings['rms_off'],
         f_off=settings['f_off'], trunc_fact=settings['trunc_fact'], zs_max=settings['zs_max'],
         mean_nz=settings['mean_nz'], sigma_nz=settings['sigma_nz'], alpha_nz=settings['alpha_nz'])
@@ -186,11 +186,11 @@ class EuclidLikelihood_CG:
                             k=settings['k'])
 
         clusterStatistics = self.ClusterStatistics(perturbations, HS, selectionFunction, profile, haloClustering, covariance,
-                            zed_obs_edges=settings['zed_obs_edges'], Lambda_obs_edges=settings['Lambda_obs_edges'],
+                            z_obs_edges=settings['zed_obs_edges'], Lambda_obs_edges=settings['Lambda_obs_edges'],
                             Rad_obs_edges=settings['Rad_obs_edges'], Lambda_obs_Cxi2_edges=settings['Lambda_obs_Cxi2_edges'],
-                            Rad_obs_Cxi2_edges=settings['Rad_obs_Cxi2_edges'], zed_obs_Cxi2_edges=settings['zed_obs_Cxi2_edges'],
+                            Rad_obs_Cxi2_edges=settings['Rad_obs_Cxi2_edges'], z_obs_Cxi2_edges=settings['zed_obs_Cxi2_edges'],
                             halo_concentration=settings['halo_concentration'], k=settings['k'], Mass=settings['Mass'],
-                            Lambda=settings['Lambda'],zed=settings['zed'], area=settings['area'],
+                            Lambda=settings['Lambda'],z=settings['zed'], area=settings['area'],
                             CG_like_selection=settings['CG_like_selection'], CG_xi2_cov_selection=settings['CG_xi2_cov_selection'],
                             bias=settings['bias'], neutrino_cdm=settings['neutrino_cdm'])
                   
