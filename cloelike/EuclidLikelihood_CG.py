@@ -194,10 +194,10 @@ class EuclidLikelihood_CG:
             gamma_MG=parameters["gamma_MG"],
         )
 
-        perturbations = self.Perturbations(background, np.linspace(0.0, 2.0, 40))
+        perturbations = self.Perturbations(background, np.linspace(0.0, 2.0, 80))
         perturbations_fid = self.Pk_fid
 
-        HS = self.HaloStatistics(
+        haloStatistics = self.HaloStatistics(
             perturbations,
             z=settings["zed"],
             k=settings["k"],
@@ -205,7 +205,7 @@ class EuclidLikelihood_CG:
         )
 
         profile = self.Profile(
-            HS,
+            haloStatistics,
             k=settings["k"],
             z=settings["zed"],
             r_interp=settings["r_interp"],
@@ -247,7 +247,7 @@ class EuclidLikelihood_CG:
 
         clusterStatistics = self.ClusterStatistics(
             perturbations,
-            HS,
+            haloStatistics,
             selectionFunction,
             profile,
             haloClustering,
