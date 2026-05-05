@@ -25,7 +25,8 @@
         "projectManagement",
         "question",
         "test",
-        "talk"
+        "talk",
+        "review"
       ]
     },
     {
@@ -41,7 +42,8 @@
         "content",
         "data",
         "doc",
-        "talk"
+        "talk",
+        "review"
       ]
     },
     {
@@ -86,6 +88,80 @@
       "contributions": [
         "ideas",
         "review"
+      ]
+    },
+    {
+      "login": "chiaramoretti",
+      "name": "Chiara Moretti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12472732?v=4",
+      "profile": "https://github.com/chiaramoretti",
+      "contributions": [
+        "code",
+        "ideas",
+        "maintenance",
+        "content",
+        "data",
+        "talk",
+        "bug"
+      ]
+    },
+    {
+      "login": "ntessore",
+      "name": "Nicolas Tessore",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3993688?v=4",
+      "profile": "http://ntessore.page",
+      "contributions": [
+        "review",
+        "ideas"
+      ]
+    },
+    {
+      "login": "davidesciotti",
+      "name": "Davide Sciotti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/84071067?v=4",
+      "profile": "https://github.com/davidesciotti",
+      "contributions": [
+        "code",
+        "bug",
+        "ideas"
+      ]
+    },
+    {
+      "login": "zahrabaghkhani",
+      "name": "Zahra Baghkhani",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47903409?v=4",
+      "profile": "https://github.com/zahrabaghkhani",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "jipdebuck",
+      "name": "Jip de Buck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/236796982?v=4",
+      "profile": "https://github.com/jipdebuck",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "KlaraBertmann",
+      "name": "KlaraBertmann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/153739278?v=4",
+      "profile": "https://github.com/KlaraBertmann",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "pltaylor16",
+      "name": "Peter L. Taylor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22646673?v=4",
+      "profile": "https://pltaylor16.github.io/",
+      "contributions": [
+        "code",
+        "ideas"
       ]
     }
   ]
