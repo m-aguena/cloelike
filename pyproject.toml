@@ -1,32 +1,40 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
 name = "cloelike"
-version = "0.1"
 description = "Likelihood module for Euclid primary observables for the CLOE project"
-authors = [
-    "M. Bonici <marco.bonici@uwaterloo.ca>",
-    "G. Cañas-Herrera <guadalupe.canasherrera@esa.int>",
-    "P. Carrilho <pedro.carrilho@ed.ac.uk>",
-    "S. Casas <casas@physik.rwth-aachen.de>",
-    "C. Moretti <cmoretti@sissa.it>",
-    "A. Pezzotta <andrea.pezzotta@inaf.it>"
-]
-license = "MIT"
 readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "M. Bonici", email = "marco.bonici@uwaterloo.ca" },
+    { name = "G. Cañas-Herrera", email = "canasherrera@strw.leidenuniv.nl" },
+    { name = "P. Carrilho", email = "pedro.carrilho@ed.ac.uk" },
+    { name = "S. Casas", email = "casas@physik.rwth-aachen.de" },
+    { name = "C. Moretti", email = "cmoretti@sissa.it" },
+    { name = "A. Pezzotta", email = "andrea.pezzotta@inaf.it" }
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-numpy = "<2.0"
-requests = "^2.32.3"
-euclidlib = "v2025.2"
+requires-python = ">=3.12,<3.13"
 
-# core cloelib functionality
-cloelib = { git = "https://github.com/cloe-org/cloelib.git" }
+dynamic = ["version"]
 
-# explicitly install extras
-camb = "*"
-comet-emu = "*"
-HMcode2020Emu = { git = "https://github.com/MariaTsedrik/HMcode2020Emu.git" }
+[project.optional-dependencies]
+docs = [
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.25",
+    "mike>=2.0",
+]
 
-[tool.poetry.group.test.dependencies]
-pytest = "^8.3"
-pytest-cov = "6.1.1"
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "cloelike/_version.py"
+
+[tool.pytest.ini_options]
+addopts = "--verbose --cov=cloelib"
+
+[tool.hatch.metadata]
+allow-direct-references = true
