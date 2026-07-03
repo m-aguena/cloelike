@@ -70,6 +70,8 @@ class EuclidLikelihood_CG:
         self.ClusterClustering = ClusterClustering
 
         self.background_fid = background_fid
+        
+        self.derived = {}
 
         self._prepare(data)
 
@@ -170,9 +172,9 @@ class EuclidLikelihood_CG:
                     n = n + 1
                     covfull_Cxi2[n] = data_dict["CG_cov_xi2"][i][j][k]
 
-        self.CGinvcovCCfinal = covfull_CC
-        self.CGinvcovMoRfinal = covfull_MoR
-        self.CGinvcovCxi2final = covfull_Cxi2
+        self.CGinvcovCCfinal = 1.0/covfull_CC
+        self.CGinvcovMoRfinal = 1.0/covfull_MoR
+        self.CGinvcovCxi2final = 1.0/covfull_Cxi2
 
     def get_CG_theory_vector(self, parameters: dict, _hmo_pars: dict, _sel_pars: dict, settings: dict):
         """Create CG Theory
@@ -211,6 +213,7 @@ class EuclidLikelihood_CG:
 
         perturbations = self.Perturbations(background, np.linspace(0.0, 2.0, 80))
 #        perturbations_fid = self.Pk_fid
+        self.derived["sigma8_0"] = perturbations.sigma8_0()
 
         halo_mass_observable = self.Halo_Mass_Observable(
             A_l=_hmo_pars["A_l"],
